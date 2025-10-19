@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -225,6 +226,7 @@ fun ProfileTab(
                     text = state.user.email,
                     style = MaterialTheme.typography.bodyLarge
                 )
+                Spacer(modifier = Modifier.padding(top = 8.dp))
                 Text(
                     text = "Name :",
                     style = MaterialTheme.typography.titleLarge
@@ -233,8 +235,11 @@ fun ProfileTab(
                     text = state.user.name,
                     style = MaterialTheme.typography.bodyLarge
                 )
-
-                Button(onClick = onClickLogout) {
+                Spacer(modifier = Modifier.padding(top = 8.dp))
+                Button(
+                    onClick = onClickLogout,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     Text("Logout")
                 }
             }
