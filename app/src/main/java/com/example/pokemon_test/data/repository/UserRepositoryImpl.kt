@@ -28,8 +28,4 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getUserByEmail(email: String): User? {
         return userDao.getUserByEmail(email)
     }
-
-    override suspend fun logout() {
-
-    }
 }

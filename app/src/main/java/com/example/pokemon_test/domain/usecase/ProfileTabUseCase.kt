@@ -10,8 +10,4 @@ class ProfileTabUseCase @Inject constructor(
     suspend operator fun invoke(email: String): User? {
         return repository.getUserByEmail(email)
     }
-
-    suspend fun logout() {
-        repository.logout()
-    }
 }

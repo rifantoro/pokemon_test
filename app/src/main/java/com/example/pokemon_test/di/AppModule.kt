@@ -3,6 +3,7 @@ package com.example.pokemon_test.di
 import android.content.Context
 import androidx.room.Room
 import com.example.pokemon_test.data.local.AppDatabase
+import com.example.pokemon_test.data.local.SessionManager
 import com.example.pokemon_test.data.local.UserDao
 import com.example.pokemon_test.data.remote.PokemonApi
 import com.example.pokemon_test.data.repository.PokemonRepositoryImpl
@@ -64,5 +65,11 @@ object AppModule {
         api: PokemonApi
     ): PokemonRepository {
         return PokemonRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSessionManager(@ApplicationContext context: Context): SessionManager {
+        return SessionManager(context)
     }
 }

@@ -43,12 +43,12 @@ class ProfileTabViewModel @Inject constructor(
         }
     }
 
-    fun logout() {
+    /*fun logout() {
         viewModelScope.launch {
             profileTabUseCase.logout()
             sessionManager.clearSession()
         }
-    }
+    }*/
 }
 
 sealed class ProfileTabUiState {

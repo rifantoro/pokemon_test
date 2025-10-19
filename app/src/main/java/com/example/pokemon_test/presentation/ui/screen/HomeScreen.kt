@@ -42,13 +42,16 @@ import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.pokemon_test.Navigation
+import com.example.pokemon_test.presentation.viewmodel.DetailScreenViewModel
+import com.example.pokemon_test.presentation.viewmodel.HomeScreenViewModel
 import com.example.pokemon_test.presentation.viewmodel.HomeTabViewModel
 import com.example.pokemon_test.presentation.viewmodel.ProfileTabUiState
 import com.example.pokemon_test.presentation.viewmodel.ProfileTabViewModel
 
 @Composable
 fun HomeScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: HomeScreenViewModel = hiltViewModel()
 ) {
     HomeScreenView(
         onDetailClick = { pokemonName ->
@@ -57,7 +60,8 @@ fun HomeScreen(
             )
         },
         onClickLogout = {
-            navController.navigate(Navigation.Login) {
+            viewModel.logout()
+            navController.navigate(Navigation.Splash) {
                 popUpTo(Navigation.Home) { inclusive = true }
             }
         }

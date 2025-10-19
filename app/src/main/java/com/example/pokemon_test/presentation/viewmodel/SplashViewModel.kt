@@ -2,6 +2,7 @@ package com.example.pokemon_test.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pokemon_test.data.local.SessionManager
 import com.example.pokemon_test.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val sessionManager: SessionManager
 ) : ViewModel() {
 
     private val _isLoggedIn = MutableStateFlow<Boolean?>(null)
@@ -19,7 +20,7 @@ class SplashViewModel @Inject constructor(
 
     fun checkLoginStatus() {
         viewModelScope.launch {
-            val currentUser = userRepository.getCurrentUser()
+            val currentUser = sessionManager.getEmail()
             _isLoggedIn.value = currentUser != null
         }
     }
