@@ -42,13 +42,6 @@ class ProfileTabViewModel @Inject constructor(
             }
         }
     }
-
-    /*fun logout() {
-        viewModelScope.launch {
-            profileTabUseCase.logout()
-            sessionManager.clearSession()
-        }
-    }*/
 }
 
 sealed class ProfileTabUiState {
