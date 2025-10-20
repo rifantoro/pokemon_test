@@ -21,10 +21,6 @@ class UserRepositoryImpl @Inject constructor(
         return userDao.getUserByEmailAndPassword(email, password)
     }
 
-    override suspend fun getCurrentUser(): User? {
-        return userDao.getCurrentUser()
-    }
-
     override suspend fun getUserByEmail(email: String): User? {
         return userDao.getUserByEmail(email)
     }
